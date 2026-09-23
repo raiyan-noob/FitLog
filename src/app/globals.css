@@ -1,26 +1,82 @@
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "fitlog";
+  default: true;
+  prefersdark: false;
+  color-scheme: dark;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --color-base-100: oklch(12% 0 0);
+  --color-base-200: oklch(16% 0 0);
+  --color-base-300: oklch(20% 0 0);
+  --color-base-content: oklch(92% 0 0);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: #ccff00;
+  --color-primary-content: #0d0d0d;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-secondary: oklch(20% 0 0);
+  --color-secondary-content: oklch(90% 0 0);
+
+  --color-accent: #ccff00;
+  --color-accent-content: #0d0d0d;
+
+  --color-neutral: oklch(18% 0 0);
+  --color-neutral-content: oklch(85% 0 0);
+
+  --color-info: oklch(75% 0.15 220);
+  --color-success: oklch(75% 0.2 145);
+  --color-warning: oklch(80% 0.18 85);
+  --color-error: oklch(65% 0.2 25);
+
+  --radius-box: 1rem;
+  --radius-field: 0.5rem;
+  --radius-selector: 1rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: #0d0d0d;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Scrollbar — matches the dark theme instead of default browser chrome */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccff00;
+}
+
+/* Text selection accent */
+::selection {
+  background: #ccff00;
+  color: #0d0d0d;
+}
+
+/* Smooth scroll for the #library anchor link from the hero CTA */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Line-clamp helper for card descriptions, if you ever need it */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
