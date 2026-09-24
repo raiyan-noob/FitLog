@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { FaPlus, FaBookmark } from "react-icons/fa";
-import SpecsPanel from "../pages/DetailsPage/SpecsPanel";
+import SpecsPanel from "../Pages/DetailsPage/SpecsPanel";
 import Instructions from "../Pages/DetailsPage/Instructions";
 import { usePlan } from "../context/PlanContext";
 const WorkoutDetailPage = () => {

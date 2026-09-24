@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Hero from "./pages/Homepage/Hero";
+import Hero from "./Pages/Homepage/Hero";
 import Library from "./Pages/Homepage/Library";
 
 export default function HomePage() {
