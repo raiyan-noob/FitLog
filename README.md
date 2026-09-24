@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FitLog
+
+FitLog is a focused workout planning app for discovering exercises, saving favorites, and building a manageable plan for today's training session.
+
+## Technologies
+
+- [Next.js 16](https://nextjs.org/) with the App Router
+- [React 19](https://react.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/) and [DaisyUI](https://daisyui.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
+- Local JSON data served from `public/data.json`
+- Browser `localStorage` for plan and saved-workout persistence
+
+## Key Features
+
+1. **Workout library** - Browse exercise data with workout cards, muscle-group information, difficulty, duration, calories, and ratings.
+2. **Search and discovery** - Search workouts by name or muscle-group tag.
+3. **Today's plan** - Build a daily plan capped at five workouts so a session stays focused.
+4. **Saved workouts** - Bookmark workouts for later and open the Saved tab directly from the navbar.
+5. **Progress tracking** - Mark planned workouts as done, review plan metrics, sort results, and keep selections across browser sessions.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.18 or later
+- npm
+
+### Installation
+
+From the project directory:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run build` | Create an optimized production build. |
+| `npm run start` | Serve the production build. |
+| `npm run lint` | Run ESLint. |
 
-## Learn More
+## Application Routes
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Purpose |
+| --- | --- |
+| `/` | Browse the workout library. |
+| `/[id]` | View workout details and instructions. |
+| `/my-plan` | Manage today's plan and saved workouts. |
+| `/my-plan?tab=plan` | Open the Today's Plan tab. |
+| `/my-plan?tab=saved` | Open the Saved tab. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data and Persistence
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Workout records are loaded from `public/data.json`. The current plan and saved workouts are stored in the browser under `fitlog_plan` and `fitlog_saved`, so no backend or account is required.
 
-## Deploy on Vercel
+To reset local app data, clear the site's local storage in your browser and reload the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+src/app/
+├── context/        Shared plan and saved-workout state
+├── Pages/           Homepage, workout details, and plan-page components
+├── shared/         Navbar, footer, and search components
+├── [id]/            Dynamic workout details route
+└── my-plan/        Plan-page route
+public/data.json     Workout library data
+```
+
+## Production Build
+
+```bash
+npm run build
+npm run start
+```
+
+The production server is then available at [http://localhost:3000](http://localhost:3000).
