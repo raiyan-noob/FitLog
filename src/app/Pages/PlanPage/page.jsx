@@ -54,9 +54,11 @@ const MyPlanPage = ({ initialTab = "plan" }) => {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
         <Tabs active={tab} onChange={setTab} />
-        <div className="flex items-center gap-3 flex-wrap">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
           <SearchBar value={query} onChange={setQuery} placeholder="Search by name or tag..." />
-          <SortDropdown sortBy={sortBy} onChange={setSortBy} />
+          <div className="w-full sm:w-auto">
+            <SortDropdown sortBy={sortBy} onChange={setSortBy} />
+          </div>
         </div>
       </div>
 
