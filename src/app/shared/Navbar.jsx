@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { usePlan } from "../context/PlanContext";
+import React from 'react';
 
-export default function Navbar() {
+const Navbar = () => {
+
   const pathname = usePathname();
   const { plan, saved } = usePlan();
 
@@ -59,3 +61,4 @@ export default function Navbar() {
     </div>
   );
 }
+export default Navbar;
