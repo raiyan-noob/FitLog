@@ -10,6 +10,7 @@ const Navbar = () => {
 
   const pathname = usePathname();
   const { plan, saved } = usePlan();
+  const isWorkoutRoute = pathname === "/" || /^\/\d+$/.test(pathname);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -22,7 +23,7 @@ const Navbar = () => {
             tabIndex={-1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             <li>
-              <Link href="/" className={pathname === "/" ? "text-primary bg-primary-content" : "text-base-content"}>Workouts</Link>
+              <Link href="/" className={isWorkoutRoute ? "text-primary bg-primary-content" : "text-base-content"}>Workouts</Link>
             </li>
             <li>
               <Link href="/my-plan" className={pathname === "/my-plan" ? "text-primary  bg-primary-content" : "text-base-content"}>My Plan</Link>
@@ -37,7 +38,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/" className={pathname === "/" ? "text-primary  bg-primary-content" : "text-base-content"}>Workouts</Link>
+            <Link href="/" className={isWorkoutRoute ? "text-primary  bg-primary-content" : "text-base-content"}>Workouts</Link>
           </li>
           <li>
             <Link href="/my-plan" className={pathname === "/my-plan" ? "text-primary  bg-primary-content" : "text-base-content"}>My Plan</Link>

@@ -68,8 +68,12 @@ export const PlanProvider= ({ children }) => {
   };
 
   const markAsDone = (id) => {
-    setPlan((prev) => prev.map((w) => (w.id === id ? { ...w, done: !w.done } : w)));
-    toast.success("Marked as done");
+    setPlan((prev) => prev.map((w) => (w.id === id ? { ...w, done: true } : w)));
+    toast.success("Marked as done", {
+      onClose: () => {
+        setPlan((prev) => prev.filter((w) => w.id !== id));
+      },
+    });
   };
 
   const isPlanFull = plan.length >= PLAN_CAP;

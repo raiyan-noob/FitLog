@@ -69,7 +69,7 @@ const WorkoutDetailPage = () => {
             onClick={() => addToPlan(workout)}
             disabled={isPlanFull}
             title={isPlanFull ? "Today's plan is full" : undefined}
-            className="btn bg-[#ccff00] hover:bg-[#b8e600] text-black border-none gap-2 font-semibold disabled:opacity-50 cursor-not-allowed"
+            className="btn bg-[#ccff00] hover:bg-[#b8e600] text-black border-none gap-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FaPlus /> Add to today&apos;s plan
           </button>
