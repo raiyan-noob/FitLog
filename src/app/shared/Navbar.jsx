@@ -46,13 +46,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-4">
-        <Link href="/my-plan" className="flex items-center gap-2 text-base-content text-sm">
+        <Link href="/my-plan?tab=plan" className="flex items-center gap-2 text-base-content text-sm">
           Plan
           <span className="badge badge-sm bg-primary text-primary-content border-none w-6 h-6 rounded-full p-0 flex items-center justify-center">
             {plan.length}
           </span>
         </Link>
-        <Link href="/my-plan" className="flex items-center gap-2 text-base-content text-sm">
+        <Link href="/my-plan?tab=saved" className="flex items-center gap-2 text-base-content text-sm">
           Saved
           <span className="badge badge-sm badge-outline text-base-content/70 border-base-content/30 w-6 h-6 rounded-full p-0 flex items-center justify-center">
             {saved.length}

@@ -12,9 +12,9 @@ import SearchBar from "../../shared/SearchBar";
 
 const sortKeyMap = { Duration: "duration", Calories: "caloriesBurned", Rating: "rating" };
 
-const MyPlanPage = () => {
+const MyPlanPage = ({ initialTab = "plan" }) => {
     const { plan, saved, removeFromPlan, removeFromSaved, markAsDone, hydrated } = usePlan();
-  const [tab, setTab] = useState("plan");
+  const [tab, setTab] = useState(initialTab);
   const [sortBy, setSortBy] = useState("Duration");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,7 @@ const MyPlanPage = () => {
         list.length === 0 ? (
           <EmptyState />
         ) : (
-          <p className="text-gray-500 text-sm py-10 text-center">No matches for &quot;{query}&quot;.</p>
+          <p className="text-gray-500 text-sm py-10 text-center">No workouts match your search.</p>
         )
       ) : (
         <div>
