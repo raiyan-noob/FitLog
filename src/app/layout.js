@@ -26,10 +26,10 @@ export default function RootLayout({ children }) {
       lang="en" data-theme="fitlog"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <PlanProvider>
           <Navbar />
-          {children}
+          <main className="flex-1">{children}</main>
           <Footer />
         </PlanProvider>
         <ToastContainer position="bottom-right" theme="dark" autoClose={1500} />

@@ -1,14 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaClock, FaFire, FaStar } from "react-icons/fa";
-import React from 'react';
 
-const WorkoutCard = ({ workout, onSelect }) => {
+const WorkoutCard = ({ workout }) => {
 
   const groups = Array.isArray(workout.muscleGroups) ? workout.muscleGroups : [workout.muscleGroups];
 
   return (
-    <div
-      onClick={() => onSelect(workout)}
+    <Link
+      href={`/${workout.id}`}
       className=" h-100  flex flex-col bg-[#161616] border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-[#ccff00]/50 transition-colors"
     >
       <div className="relative h-65 w-full">
@@ -32,7 +32,7 @@ const WorkoutCard = ({ workout, onSelect }) => {
           <span className="flex items-center gap-1"><FaStar className="text-[#ccff00]" /> {workout.rating}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 export default WorkoutCard;
