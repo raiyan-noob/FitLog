@@ -67,11 +67,12 @@ export const PlanProvider= ({ children }) => {
     toast.info("Removed from saved");
   };
 
-  const markAsDone = (id) => {
+  const markAsDone = (id, onToastClose) => {
     setPlan((prev) => prev.map((w) => (w.id === id ? { ...w, done: true } : w)));
-    toast.success("Marked as done", {
+    toast.success("Workout done!!", {
       onClose: () => {
         setPlan((prev) => prev.filter((w) => w.id !== id));
+        onToastClose?.();
       },
     });
   };
